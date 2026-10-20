@@ -14,9 +14,15 @@ Student powinien:
 - wykorzystać dane przygotowane już w `beforeEach()`,
 - za pomocą `fixture.nativeElement` uzyskać dostęp do wyrenderowanego widoku,
 - odnaleźć element odpowiedzialny za wyświetlenie ikony,
-- za pomocą `expect()` sprawdzić, czy wyświetlana jest wartość `rocket`,
-- uruchomić testy i upewnić się, że nowy test oraz pozostałe testy projektu przechodzą poprawnie.
+- za pomocą `expect()` sprawdzić, czy element `mat-icon` ma atrybut `fonticon` o wartości `rocket`,
+- uruchomić testy i upewnić się, że nowy test przechodzi poprawnie,
+- przejść po pozostałych plikach `*.spec.ts` w aplikacji i spróbować naprawić testy, które nie przechodzą.
+
 Test powinien sprawdzać rezultat widoczny w DOM-ie, a nie bezpośrednio wartość przekazaną do inputu `card`.
+
+💡 Komponent `mat-icon` otrzymuje nazwę ikony przez `[fontIcon]`, a nie jako tekst elementu. Angular Material zapisuje ją w atrybucie `fonticon`, który możesz odczytać za pomocą `getAttribute()`.
+
+💡 Pliki testów wygenerowane przez Angular CLI nie były aktualizowane podczas rozwijania aplikacji. Najczęstsze przyczyny błędów to brakujące zależności komponentu (np. `provideHttpClient()` lub `provideRouter([])` w `providers`) oraz wymagane inputy, którym test nie przekazał wartości (`fixture.componentRef.setInput()`).
 
 ## Jak zacząć
 
